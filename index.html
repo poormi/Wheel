@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>幸运大爆炸</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/media.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="rf-main">
+        <header class="rf-title">
+            <h1 id="rf_title"></h1>
+        </header>
+        <section>
+            <div class="rf-wrap">
+                <div class="turnplate">
+                    <canvas class="item" id="wheelcanvas" width="400px" height="400px"></canvas>
+                    <div class="pointer"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="rf_activity" class="rf-desc-wrap hide">
+        <div class="rf-subtitle">{{=it.subTitle}}</div>
+        <section class="rf-desc-title">
+            <h4>1、活动时间</h4>
+            <p id="rf_date"></p>
+        </section>
+        {{var desc=it.desc;}}
+        {{for(var i=0;i< desc.length;i++){}}
+            <section class="rf-desc-title">
+                <h4>{{=i+2}}、{{=desc[i].descTitle}}</h4>
+                {{?desc[i].subTitle }}
+                    <p>{{=desc[i].subTitle}}</p>
+                {{} }}
+                <ul class="rf-desc-list">
+                    {{var data=desc[i].data;}}
+                    {{for(var j=0,l=data.length;j < l;j++){}}
+                        <li class="{{=!!data[j].icon?data[j].icon:''}}">{{=data[j].text}}</li>
+                    {{}}}
+                </ul>
+            </section>
+        {{} }}
+    </footer>
+
+    <div class="rf-tips-mask hide">
+    </div>
+    <div class="rf-tips-wrap hide">
+        <div id="rf_tips_title">
+            <div class="rf-tips-title"></div>
+            <h2 class="rf-tips-info">获得<em id="rf_tips"></em></h2>
+        </div>
+        <div class="rf-tips-icon">
+            <img id="rf_icon" src=""/>
+        </div>
+        <p id="rf_alert" class="rf-alert-info hide"></p>
+        <a id="rf_btn" href="javascript:" class="rf-btn">奖品领取</a>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/awardRotate.js"></script>
+<script type="text/javascript" src="js/doT.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
